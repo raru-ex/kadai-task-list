@@ -1,0 +1,14 @@
+Task=content
+CreatedAt=create time
+UpdatedAt=update time
+Create=Create
+Delete=Delete
+Update=Update
+
+GetTasksIndexTitle=Task List
+CreateTaskIndexTitle=Create Task
+ShowTaskIndexTitle=Task Detail
+UpdateTaskIndexTitle=Task Edit
+
+CreateTaskError=Task create error
+DeleteTaskError=Task delete error

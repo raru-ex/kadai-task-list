@@ -6,11 +6,16 @@
 # An example controller showing a sample home page
 GET     /                           controllers.Default.redirect(to = "/tasks")
 GET     /tasks                      controllers.GetTasksController.index
-GET     /tasks/:id                  controllers.GetTaskController.index(id: Long)
 GET     /tasks/create               controllers.CreateTaskController.index
+GET     /tasks/:id                  controllers.GetTaskController.index(id: Long)
+GET     /tasks/:id/update           controllers.UpdateTaskController.index(id: Long)
+
+# 以下の方が記述順を気にしなくていいので好ましい？
+# GET     /tasks/:id/get            controllers.GetTaskController.index(id: Long)
+
 
 POST    /tasks/create                     controllers.CreateTaskController.create
-POST    /tasks/:id/update                 controllers.CreateTaskController.update(id: Long)
+POST    /tasks/update                     controllers.UpdateTaskController.update
 POST    /tasks/:id/delete                 controllers.DeleteTaskController.delete(id: Long)
 
 

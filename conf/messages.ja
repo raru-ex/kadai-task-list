@@ -1,0 +1,14 @@
+Task=内容
+CreatedAt=作成日時
+UpdatedAt=更新日時
+Create=新規作成
+Delete=削除
+Update=更新
+
+GetTasksIndexTitle=タスク一覧
+CreateTaskIndexTitle=タスク新規作成
+ShowTaskIndexTitle=タスク詳細
+UpdateTaskIndexTitle=タスク編集
+
+CreateTaskError=タスク新規作成エラー
+DeleteTaskError=タスク削除エラー

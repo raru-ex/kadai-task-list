@@ -1,8 +1,7 @@
 package models
 
 import java.time.ZonedDateTime
-
-import scalikejdbc._
+import scalikejdbc._, jsr310._
 import skinny.orm._
 
 /**
@@ -11,15 +10,15 @@ import skinny.orm._
 case class Task(id: Option[Long], content: String, createdAt: ZonedDateTime, updatedAt: ZonedDateTime)
 
 object Task extends SkinnyCRUDMapper[Task] {
-  override def tableName = "task"
+  override def tableName = "tasks"
 
   override def defaultAlias: Alias[Task] = createAlias("t")
 
   override def extract(rs: WrappedResultSet, n: ResultName[Task]): Task =
     autoConstruct(rs, n)
 
-  private def toNamedValues(record: Task): Seq[(Symbol, Any)] = Seq (
-    'content -> record.content,
+  private def toNamedValues(record: Task): Seq[(Symbol, Any)] = Seq(
+    'content   -> record.content,
     'createdAt -> record.createdAt,
     'updatedAt -> record.updatedAt
   )
