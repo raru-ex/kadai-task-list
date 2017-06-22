@@ -1,0 +1,7 @@
+CREATE TABLE tasks (
+    id          BIGINT        AUTO_INCREMENT,
+    content     VARCHAR(255)  NOT NULL,
+    created_at  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
