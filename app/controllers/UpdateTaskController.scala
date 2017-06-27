@@ -18,8 +18,10 @@ class UpdateTaskController @Inject()(val messagesApi: MessagesApi)
     with TaskControllerSupport {
 
   def index(taskId: Long): Action[AnyContent] = Action { implicit request =>
-    val task = Task.findById(taskId).get
-    Ok(views.html.edit(form.fill(TaskForm(task.id, task.content))))
+    Task.findById(taskId) match {
+      case Some(task) => Ok(views.html.edit(form.fill(TaskForm(task.id, task.content))))
+      case None       => NotFound(s"can not find task id = $taskId")
+    }
   }
 
   def update: Action[AnyContent] = Action { implicit request =>
