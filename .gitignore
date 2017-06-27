@@ -7,6 +7,4 @@ target
 /.settings
 /RUNNING_PID
 .DS_Store
-create-mysql-db.sql
-/env/
-
+create-mysql-db-local.sql
