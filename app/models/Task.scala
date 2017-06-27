@@ -7,7 +7,11 @@ import skinny.orm._
 /**
   * Task
   */
-case class Task(id: Option[Long], content: String, createdAt: ZonedDateTime, updatedAt: ZonedDateTime)
+case class Task(id: Option[Long],
+                content: String,
+                status: Option[String],
+                createdAt: ZonedDateTime,
+                updatedAt: ZonedDateTime)
 
 object Task extends SkinnyCRUDMapper[Task] {
   override def tableName = "tasks"
@@ -19,6 +23,7 @@ object Task extends SkinnyCRUDMapper[Task] {
 
   private def toNamedValues(record: Task): Seq[(Symbol, Any)] = Seq(
     'content   -> record.content,
+    'status    -> record.status,
     'createdAt -> record.createdAt,
     'updatedAt -> record.updatedAt
   )

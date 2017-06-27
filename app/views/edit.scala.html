@@ -8,6 +8,7 @@
     <div class="col-xs-6">
       @b3.formCSRF(routes.UpdateTaskController.update) {
         @b3.hidden(taskForm("id").name, taskForm("id").value.get)
+        @b3.select(taskForm("status"), options = Seq("新規" -> "新規", "進行中" -> "進行中", "解決" -> "解決", "終了" -> "終了", "却下" -> "却下"), '_label -> "Status")
         @b3.text(taskForm("content"), '_label -> "Task")
         @b3.submit('class -> "btn btn-default") {
           @Messages("Update")

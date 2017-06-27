@@ -19,7 +19,7 @@ class UpdateTaskController @Inject()(val messagesApi: MessagesApi)
 
   def index(taskId: Long): Action[AnyContent] = Action { implicit request =>
     Task.findById(taskId) match {
-      case Some(task) => Ok(views.html.edit(form.fill(TaskForm(task.id, task.content))))
+      case Some(task) => Ok(views.html.edit(form.fill(TaskForm(task.id, task.content, task.status.getOrElse("")))))
       case None       => NotFound(s"can not find task id = $taskId")
     }
   }
@@ -34,6 +34,7 @@ class UpdateTaskController @Inject()(val messagesApi: MessagesApi)
             .updateById(model.id.get)
             .withAttributes(
               'content   -> model.content,
+              'status    -> model.status,
               'updatedAt -> ZonedDateTime.now
             )
 

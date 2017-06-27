@@ -8,12 +8,14 @@
     <table class="table table-striped">
       <thead>
         <td>id</td>
+        <td>@Messages("Status")</td>
         <td>@Messages("Task")</td>
       </thead>
       <tbody>
         @for(task <- tasks) {
           <tr>
             <td><a href="@routes.GetTaskController.index(task.id.get)">@task.id.get</a></td>
+            <td>@task.status</td>
             <td>@task.content</td>
           </tr>
         }

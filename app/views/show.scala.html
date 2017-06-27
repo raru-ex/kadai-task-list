@@ -8,6 +8,7 @@
   <table class="table table-striped">
     <thead>
       <td>id</td>
+      <td>@Messages("Status")</td>
       <td>@Messages("Task")</td>
       <td>@Messages("CreatedAt")</td>
       <td>@Messages("UpdatedAt")</td>
@@ -15,6 +16,7 @@
     <tbody>
       <tr>
         <td>@task.id</td>
+        <td>@task.status</td>
         <td>@task.content</td>
         <td>@task.createdAt</td>
         <td>@task.updatedAt</td>
